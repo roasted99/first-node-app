@@ -15,7 +15,11 @@ app.get('/about', (req, res) => {
 })
 
 app.get('/contact-me', (req, res) => {
-  res.sendFile('./views/contact-me.html', {root:_dirname})
+  res.sendFile('./views/contact-me.html', {root:__dirname})
+})
+
+app.get('*', (req, res) => {
+  res.status(404).sendFile('./views/404.html', {root: __dirname})
 })
 
 app.listen(port, () => {
